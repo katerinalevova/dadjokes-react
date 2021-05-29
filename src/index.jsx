@@ -14,19 +14,58 @@ const App = () => {
       likes: 13,
       dislikes: 24,
     },
+    {
+      id: 'user02',
+      avatar:
+        'https://raw.githubusercontent.com/Czechitas-podklady-WEB/dadjokes/main/users/user02.png',
+      name: 'wetcxjfsj',
+      text: "Why did the invisible man turn down the job offer? He couldn't see himself doing it.",
+      likes: 50,
+      dislikes: 10,
+    },
   ];
+  // const ZobrazeniVtipu = (jokes) => {
+  //   for (let i = 0; i < length.jokes; i++) {
+  //     <Joke
+  //       userAvatar={jokes[i].avatar}
+  //       userName={jokes[i].name}
+  //       text={jokes[i].text}
+  //       likes={jokes[i].likes}
+  //       dislikes={jokes[i].dislikes}
+  //     />;
+  //   }
+  //   return <Joke />;
+  // };
 
   return (
-    <>
-      <Joke
-        userAvatar={jokes[0].avatar}
-        userName={jokes[0].name}
-        text={jokes[0].text}
-        likes={jokes[0].likes}
-        dislikes={jokes[0].dislikes}
-      />
-    </>
+    <div>
+      {jokes.map((vtip) => {
+        return (
+          <Joke
+            userAvatar={vtip.avatar}
+            userName={vtip.name}
+            text={vtip.text}
+            likes={vtip.likes}
+            dislikes={vtip.dislikes}
+            key={vtip.id}
+          />
+        );
+      })}
+    </div>
   );
 };
 
 render(<App />, document.querySelector('#app'));
+
+// const App = () => (
+//   <div>
+//     {' '}
+//     {cities.map((mesto) => {
+//       return (
+//         <div className="city" key={mesto}>
+//           {mesto}
+//         </div>
+//       );
+//     })}{' '}
+//   </div>
+// );
