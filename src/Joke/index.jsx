@@ -2,9 +2,9 @@ import React from 'react';
 import { useState } from 'react';
 import './style.css';
 
-const Joke = () => {
-  const [palecNahoru, setPalecNahoru] = useState(0);
-  const [palecDolu, setPalecDolu] = useState(0);
+const Joke = ({ userAvatar, userName, text, likes, dislikes }) => {
+  const [palecNahoru, setPalecNahoru] = useState(likes);
+  const [palecDolu, setPalecDolu] = useState(dislikes);
 
   const kliknabtnup = () => {
     setPalecNahoru(palecNahoru + 1);
@@ -19,18 +19,11 @@ const Joke = () => {
       <div className="joke">
         <div className="joke__body">
           <div className="joke__user">
-            <img
-              className="user-avatar"
-              src="https://raw.githubusercontent.com/Czechitas-podklady-WEB/dadjokes/main/users/user01.png"
-            />
-            <p className="user-name">Neroxx</p>
+            <img className="user-avatar" src={userAvatar} />
+            <p className="user-name">{userName}</p>
           </div>
 
-          <p className="joke__text">
-            The secret service isn't allowed to yell "Get down!" anymore when
-            the president is about to be attacked. Now they have to yell
-            "Donald, duck!"
-          </p>
+          <p className="joke__text">{text}</p>
         </div>
         <div className="joke__likes">
           <button
